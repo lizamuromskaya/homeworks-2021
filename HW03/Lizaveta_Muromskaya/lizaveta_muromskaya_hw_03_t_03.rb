@@ -10,8 +10,8 @@ def time_in_sec(time)
 end
 
 def time_difference
-  (0..@seconds.size - 1).each do |element|
-    res = @seconds[element] - @seconds[element - 1]
+  @seconds.each_cons(2) do |start_event, end_event|
+    res = end_event - start_event
     @result << res.round(1).to_s if res.positive?
   end
 end
