@@ -1,17 +1,19 @@
-def task_2(log)
-  @arr = []
-  str = ''
-  data = log.scan(%r{[0-9]+/[A-z]+/[0-9]+:+[0-9]+:+[0-9]+:+[0-9]+\s+\+[0-9]*}) # data
-  from = log.scan(/^[0-9]+\.+[0-9]+\.+[0-9]+\.+[0-9]*/) # from
-  to = log.scan(%r{/[a-z]+/[0-9]+/[a-z]+}) # to
-  to.each { |i| i.upcase! }
-  (0..data.size - 1).each do |i|
-    str = "DATA: #{data[i]} FROM: #{from[i]} TO: #{to[i]}"
-    @arr << str
+# frozen_string_literal: true
+
+DATE = %r{[0-9]+/[A-z]+/[0-9]+:+[0-9]+:+[0-9]+:+[0-9]+\s+\+[0-9]*}.freeze
+FROM = /^[0-9]+\.+[0-9]+\.+[0-9]+\.+[0-9]*/.freeze
+TO = %r{/[a-z]+/[0-9]+/[a-z]+}.freeze
+
+def task2(log)
+  message = []
+  lines = log.split("\n")
+  lines.each do |string|
+    date = string.scan(DATE).first
+    next if date.nil?
+
+    from = string.scan(FROM).first
+    to = string.scan(TO).first.upcase!
+    message << "DATE: #{date} FROM: #{from} TO: #{to}"
   end
-  if @arr.size > 0
-    @arr.each { |i| p i }
-  else
-    p @arr
-  end
+  p message
 end
