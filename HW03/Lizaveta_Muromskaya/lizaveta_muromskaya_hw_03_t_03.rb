@@ -1,23 +1,31 @@
-def task_3(log)
-  @arr = []
+# frozen_string_literal: true
+
+TIME = /[0-9]+:[0-9]+:[0-9]+\.[0-9]/.freeze
+def time_in_sec(time)
+  time.each do |time_numbers|
+    time_buf = time_numbers.split(':')
+    sec = time_buf[0].to_f * 3600 + time_buf[1].to_f * 60 + time_buf[2].to_f
+    @seconds << sec
+  end
+end
+
+def time_difference
+  (0..@seconds.size - 1).each do |element|
+    res = @seconds[element] - @seconds[element - 1]
+    @result << res.round(1).to_s if res.positive?
+  end
+end
+
+def task3(log)
+  @seconds = []
   @result = []
-  # Calling core with action:
-  a = log.split("\n")
-  a.each_with_index do |string, _index|
-    if string['Calling core with action:']
-      time = string.scan(/[0-9]+:[0-9]+:[0-9]+\.[0-9]/) # time
-    end
+  lines = log.split("\n")
+  lines.each do |string|
+    time = string.scan(TIME) if string.include?('Calling core with action:')
     next if time.nil?
 
-    time.each do |i|
-      d = i.split(':')
-      sec = d[0].to_f * 3600 + d[1].to_f * 60 + d[2].to_f
-      @arr << sec
-    end
-    (0..@arr.size - 2).each do |i|
-      res = @arr[i + 1] - @arr[i]
-      @result << res.round(1).to_s if res > 0
-    end
+    time_in_sec(time)
+    time_difference
   end
-  @result.size>0 ?  "#{p @result}" : "#{p "0"}"
+  p @result
 end
