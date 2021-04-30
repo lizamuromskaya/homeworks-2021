@@ -36,7 +36,8 @@ log = <<~LOGS
 LOGS
 
 puts '-----TASK 3-----'
-puts task3(log)
+obj = Task.new
+p obj.task3(log)
 
 puts '-----TASK 4-----'
 puts task4('sA246a')
