@@ -15,5 +15,5 @@ def task2(log)
     to = string.scan(TO).first.upcase!
     message << "DATE: #{date} FROM: #{from} TO: #{to}"
   end
-  p message
+  message
 end
