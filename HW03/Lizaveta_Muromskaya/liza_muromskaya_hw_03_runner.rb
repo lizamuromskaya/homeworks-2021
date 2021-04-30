@@ -13,7 +13,7 @@ log = <<~LOGS
 LOGS
 
 puts '-----TASK 1-----'
-task1(log)
+puts task1(log)
 
 log = <<~LOGS
   10.6.246.103 - - [23/Apr/2018:20:30:39 +0300] "POST /test/2/messages HTTP/1.1" 200 48 0.0498
@@ -23,7 +23,7 @@ log = <<~LOGS
 LOGS
 
 puts '-----TASK 2-----'
-task2(log)
+puts task2(log)
 
 log = <<~LOGS
   2018-04-23 17:17:49.7 ubuntu-xenial[14319] Debug - Calling core with action: event
@@ -36,7 +36,7 @@ log = <<~LOGS
 LOGS
 
 puts '-----TASK 3-----'
-task3(log)
+puts task3(log)
 
 puts '-----TASK 4-----'
-task4('sA246a')
+puts task4('sA246a')
