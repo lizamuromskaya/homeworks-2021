@@ -2,6 +2,6 @@
 
 def task1(log)
   lines = log.split("\n")
-  lines.each { |line| return p line if line.include?('error') }
-  p ''
+  lines.each { |line| return line if line.include?('error') }
+  ''
 end
