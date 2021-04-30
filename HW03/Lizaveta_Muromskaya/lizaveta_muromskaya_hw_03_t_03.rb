@@ -27,5 +27,5 @@ def task3(log)
     time_in_sec(time)
     time_difference
   end
-  p @result
+  @result
 end
