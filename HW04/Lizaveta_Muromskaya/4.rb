@@ -6,36 +6,38 @@ require './student'
 student = Student.new(name: 'John', surname: 'Doe')
 mentor = Mentor.new(name: 'Jack', surname: 'Gonsales')
 
-student.to_work('HW:05', 'data')
-student.add_answer
+mentor.task_for_student('HW:05', 'data', student)
+
+student.add_answer('Data1')
 student.to_check
-student.all_homeworks # => [Homework, ...]
 
 mentor.subscribe_to(student)
-mentor.notifications # => []
 
-student.to_work('HW:05', 'more data')
-student.add_answer
+mentor.add_new_task
+student.show_notifications
+student.read_notifications
+
+mentor.show_notifications # => []
+
+student.add_answer('Data2')
 student.to_check
-mentor.notifications # => [Notification, ...]
+mentor.show_notifications # => [Notification, ...]
 
 mentor.read_notifications
-mentor.notifications # => []
+mentor.show_notifications # => []
 
-student.to_work('HW:05', 'one more data')
-student.add_answer
+student.add_answer('Data3')
 student.to_check
 
 mentor.reject_to_work
 
-student.notifications
+student.show_notifications
 student.read_notifications
 
-student.to_work('HW:05', 'date after rewriting')
-student.add_answer
+student.add_answer('Data4')
 student.to_check
 
 mentor.accept_to_work
 
-student.notifications
+student.show_notifications
 student.read_notifications
