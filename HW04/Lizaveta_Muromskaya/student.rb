@@ -7,8 +7,13 @@ require './notification'
 
 # This class is responsible for the student's actions
 class Student < Human
-  attr_reader :homeworks, :notifications
-  attr_accessor :mentors
+  private
+
+  attr_reader :homeworks
+
+  public
+
+  attr_reader :mentors
 
   def initialize(name:, surname:)
     super
@@ -17,16 +22,17 @@ class Student < Human
     @notifications = []
   end
 
-  def all_homeworks
+  def show_homeworks
     @homeworks.each { |homework| p homework }
   end
 
-  def to_work(title, data)
-    @homework = Homework.new(title: title, data: data)
+  def to_work(homework_task)
+    @homework = homework_task
+    @homeworks << @homework
   end
 
-  def add_answer
-    @homeworks << @homework
+  def add_answer(answer)
+    @homework.answer = answer
   end
 
   def to_check
