@@ -2,13 +2,11 @@
 
 # class notification
 class Notification
-  private
-
-  attr_reader :message
-
-  public
-
   def initialize(message:)
     @message = message
   end
+
+  private
+
+  attr_reader :message
 end
