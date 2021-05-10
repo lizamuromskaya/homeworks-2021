@@ -11,10 +11,10 @@ class Human
   end
 
   def show_notifications
-    @notifications.each { |notification| p notification }
+    notifications.each { |notification| p notification }
   end
 
   def read_notifications
-    @notifications.clear
+    notifications.clear
   end
 end
