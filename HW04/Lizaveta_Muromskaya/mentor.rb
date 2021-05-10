@@ -3,12 +3,6 @@
 require './human'
 # The class that is responsible for the mentor's actions
 class Mentor < Human
-  private
-
-  attr_reader :students
-
-  public
-
   def initialize(name:, surname:)
     super
     @students = []
@@ -23,26 +17,34 @@ class Mentor < Human
   def task_for_student(title, data, student)
     homework = Homework.new(title: title, data: data, student: student)
     student.to_work(homework)
+    homework
   end
 
-  def add_new_task
+  def notify_students(notification)
+    @students.each do |student|
+      student.notifications << notification
+    end
+  end
+
+  def add_new_task(homework)
     notification = Notification.new(message: 'Add a new task!')
-    @students.each do |student|
-      student.notifications << notification
-    end
+    notify_students(notification)
+    homework.given
   end
 
-  def reject_to_work
+  def reject_to_work(homework)
     notification = Notification.new(message: 'Rejected!')
-    @students.each do |student|
-      student.notifications << notification
-    end
+    notify_students(notification)
+    homework.rejecting
   end
 
-  def accept_to_work
+  def accept_to_work(homework)
     notification = Notification.new(message: 'Accepted!')
-    @students.each do |student|
-      student.notifications << notification
-    end
+    notify_students(notification)
+    homework.accepting
   end
+
+  private
+
+  attr_reader :students
 end
