@@ -2,14 +2,15 @@
 
 # Base class Human
 class Human
-  attr_reader :name, :surname
+  attr_reader :name, :surname, :notifications
 
   def initialize(name:, surname:)
     @name = name
     @surname = surname
+    @notifications = []
   end
 
-  def notifications
+  def show_notifications
     @notifications.each { |notification| p notification }
   end
 
