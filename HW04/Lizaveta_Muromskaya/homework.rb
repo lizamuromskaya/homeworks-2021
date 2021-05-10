@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-# class homework
+# class Homework
 class Homework
   attr_reader :title, :data
   attr_accessor :answer
