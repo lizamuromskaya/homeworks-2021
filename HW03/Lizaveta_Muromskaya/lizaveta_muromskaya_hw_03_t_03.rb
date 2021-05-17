@@ -32,6 +32,6 @@ class Task
       time_in_sec(time)
       time_difference
     end
-    @result
+    @result.empty? ? '0' : @result
   end
 end
