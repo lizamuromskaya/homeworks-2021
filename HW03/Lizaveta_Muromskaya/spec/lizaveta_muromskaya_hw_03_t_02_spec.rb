@@ -48,6 +48,7 @@ RSpec.describe 'Array of formatted strings containing information about post req
         expect(task2(log_in_the_wrong_format)).to eq([])
       end
     end
+
     context 'when no arguments is given' do
       it 'return ArgumentError' do
         expect { task2 }.to raise_error(ArgumentError)
@@ -61,11 +62,13 @@ RSpec.describe 'Array of formatted strings containing information about post req
         expect(task2(log)).to eq(right_output)
       end
     end
+
     context 'when logs have more than one error' do
       it 'return an array of formatted strings' do
         expect(task2(log_with_errors)).to eq(right_output)
       end
     end
+
     context 'when logs have no lines with error' do
       it 'return an array of formatted strings' do
         expect(task2(log_without_errors)).to eq(right_output)

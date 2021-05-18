@@ -37,6 +37,7 @@ RSpec.describe 'Array of formatted strings containing information about post req
         expect(task1(log_with_errors)).to eq(right_output)
       end
     end
+
     context 'when logs have no lines with error' do
       it 'return an empty string' do
         expect(task1(log_without_errors)).to eq('')
