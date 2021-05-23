@@ -24,7 +24,7 @@ LOGS
 
 right_output = '2018-04-23 20:30:42: SSL error, peer: 10.6.246.101, peer cert: , #<Puma::MiniSSL::SSLError: System error: Undefined error: 0 - 0>'
 
-RSpec.describe 'Array of formatted strings containing information about post requests' do
+RSpec.describe '.task1' do
   describe 'Log that has right output' do
     context 'when logs have one error' do
       it 'return full text of the first line with an error' do
