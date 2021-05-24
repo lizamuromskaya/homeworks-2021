@@ -11,7 +11,7 @@ RSpec.describe 'MyArrayMethods' do
       context 'when array is empty' do
         let(:array) { [] }
 
-        it 'return nothing' do
+        it 'returns nothing' do
           expect(array.my_each {}).to eq(0..-1)
         end
       end
@@ -19,7 +19,7 @@ RSpec.describe 'MyArrayMethods' do
       context 'when array is not empty' do
         let(:array) { [1, 2, 3, 4, 5] }
 
-        it 'return array' do
+        it 'returns array' do
           expect(array.my_each {}).to eq(0..4)
         end
       end
@@ -29,7 +29,7 @@ RSpec.describe 'MyArrayMethods' do
       context 'when array is empty' do
         let(:array) { [] }
 
-        it 'return nil' do
+        it 'returns nil' do
           expect(array.my_each).to eq(nil)
         end
       end
@@ -37,7 +37,7 @@ RSpec.describe 'MyArrayMethods' do
       context 'when array is not empty' do
         let(:array) { [1, 2, 3, 4, 5] }
 
-        it 'return nil' do
+        it 'returns nil' do
           expect(array.my_each).to eq(nil)
         end
       end
@@ -49,7 +49,7 @@ RSpec.describe 'MyArrayMethods' do
       context 'when array is empty' do
         let(:array) { [] }
 
-        it 'return nothing' do
+        it 'returns nothing' do
           expect(array.my_map { |element| element + 1 }).to eq([])
         end
       end
@@ -57,7 +57,7 @@ RSpec.describe 'MyArrayMethods' do
       context 'when array is not empty' do
         let(:array) { [1, 2, 3, 4, 5] }
 
-        it 'return modified array' do
+        it 'returns modified array' do
           expect(array.my_map { |element| element + 2 }).to eq([3, 4, 5, 6, 7])
         end
       end
@@ -67,7 +67,7 @@ RSpec.describe 'MyArrayMethods' do
       context 'when array is empty' do
         let(:array) { [] }
 
-        it 'return empty array' do
+        it 'returns empty array' do
           expect(array.my_map).to eq([])
         end
       end
@@ -75,7 +75,7 @@ RSpec.describe 'MyArrayMethods' do
       context 'when array is not empty' do
         let(:array) { [1, 2, 3, 4, 5] }
 
-        it 'return empty array' do
+        it 'returns empty array' do
           expect(array.my_map).to eq([])
         end
       end
@@ -87,7 +87,7 @@ RSpec.describe 'MyArrayMethods' do
       context 'when array is empty' do
         let(:array) { [] }
 
-        it 'return nothing' do
+        it 'returns nothing' do
           expect(array.my_select(&:even?)).to eq(0..-1)
         end
       end
@@ -95,7 +95,7 @@ RSpec.describe 'MyArrayMethods' do
       context 'when array is not empty' do
         let(:array) { [1, 2, 3, 4, 5] }
 
-        it 'return modified array' do
+        it 'returns modified array' do
           expect(array.my_select(&:even?)).to eq(0..1)
         end
       end
@@ -105,7 +105,7 @@ RSpec.describe 'MyArrayMethods' do
       context 'when array is empty' do
         let(:array) { [] }
 
-        it 'return nil' do
+        it 'returns nil' do
           expect(array.my_select).to eq(nil)
         end
       end
@@ -113,7 +113,7 @@ RSpec.describe 'MyArrayMethods' do
       context 'when array is not empty' do
         let(:array) { [1, 2, 3, 4, 5] }
 
-        it 'return nil' do
+        it 'returns nil' do
           expect(array.my_select).to eq(nil)
         end
       end

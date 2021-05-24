@@ -8,7 +8,7 @@ obj = Task.new
 RSpec.describe 'Array of formatted strings containing information about post requests' do
   describe 'Log that has wrong output' do
     context 'when no arguments given' do
-      it 'return ArgumentError' do
+      it 'returns ArgumentError' do
         expect { obj.task3 }.to raise_error(ArgumentError)
       end
     end
@@ -31,7 +31,7 @@ RSpec.describe 'Array of formatted strings containing information about post req
         LOGS
       end
 
-      it 'duration of the action in seconds between events' do
+      it 'returns duration of the action in seconds between events' do
         expect(subject).to eq(['49.1', '60.0'])
       end
     end
@@ -47,7 +47,7 @@ RSpec.describe 'Array of formatted strings containing information about post req
         LOGS
       end
 
-      it 'return 0' do
+      it 'returns 0' do
         expect(subject).to eq('0')
       end
     end
@@ -64,7 +64,7 @@ RSpec.describe 'Array of formatted strings containing information about post req
         LOGS
       end
 
-      it 'return 0' do
+      it 'returns 0' do
         expect(subject).to eq('0')
       end
     end
@@ -82,7 +82,7 @@ RSpec.describe 'Array of formatted strings containing information about post req
         LOGS
       end
 
-      it 'return duration of the action in seconds between events' do
+      it 'returns duration of the action in seconds between events' do
         expect(subject).to eq('49.1')
       end
     end

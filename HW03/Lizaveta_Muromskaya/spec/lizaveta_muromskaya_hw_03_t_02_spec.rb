@@ -6,7 +6,7 @@ require_relative '../lizaveta_muromskaya_hw_03_t_02'
 RSpec.describe 'Array of formatted strings containing information about post requests' do
   describe 'Log that has wrong output' do
     context 'when text are not given' do
-      it 'return an empty array' do
+      it 'returns an empty array' do
         expect(task2('')).to eq([])
       end
     end
@@ -21,13 +21,13 @@ RSpec.describe 'Array of formatted strings containing information about post req
         LOGS
       end
 
-      it 'return an empty array' do
+      it 'returns an empty array' do
         expect(task2(log)).to eq([])
       end
     end
 
     context 'when no arguments is given' do
-      it 'return ArgumentError' do
+      it 'returns ArgumentError' do
         expect { task2 }.to raise_error(ArgumentError)
       end
     end
@@ -53,7 +53,7 @@ RSpec.describe 'Array of formatted strings containing information about post req
         ]
       end
 
-      it 'return an array of formatted strings' do
+      it 'returns an array of formatted strings' do
         expect(subject).to eq(right_output)
       end
     end
@@ -77,7 +77,7 @@ RSpec.describe 'Array of formatted strings containing information about post req
         ]
       end
 
-      it 'return an array of formatted strings' do
+      it 'returns an array of formatted strings' do
         expect(subject).to eq(right_output)
       end
     end
@@ -98,7 +98,7 @@ RSpec.describe 'Array of formatted strings containing information about post req
         ]
       end
 
-      it 'return an array of formatted strings' do
+      it 'returns an array of formatted strings' do
         expect(subject).to eq(right_output)
       end
     end

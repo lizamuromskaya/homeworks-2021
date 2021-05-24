@@ -20,7 +20,7 @@ RSpec.describe '.task1' do
         '2018-04-23 20:30:42: SSL error, peer: 10.6.246.101, peer cert: , #<Puma::MiniSSL::SSLError: System error: Undefined error: 0 - 0>'
       end
 
-      it 'return full text of the first line with an error' do
+      it 'returns full text of the first line with an error' do
         expect(subject).to eq(right_output)
       end
     end
@@ -40,7 +40,7 @@ RSpec.describe '.task1' do
         '2018-04-23 20:30:42: SSL error, peer: 10.6.246.101, peer cert: , #<Puma::MiniSSL::SSLError: System error: Undefined error: 0 - 0>'
       end
 
-      it 'full text of the first line with an error' do
+      it 'returns full text of the first line with an error' do
         expect(subject).to eq(right_output)
       end
     end
@@ -54,7 +54,7 @@ RSpec.describe '.task1' do
         LOGS
       end
 
-      it 'return an empty string' do
+      it 'returns an empty string' do
         expect(subject).to eq('')
       end
     end
@@ -62,13 +62,13 @@ RSpec.describe '.task1' do
 
   describe 'Log that has wrong output' do
     context 'when text are not given' do
-      it 'return an empty string' do
+      it 'returns an empty string' do
         expect('').to eq('')
       end
     end
 
     context 'when no arguments is given' do
-      it 'return ArgumentError' do
+      it 'returns ArgumentError' do
         expect { task1 }.to raise_error(ArgumentError)
       end
     end
